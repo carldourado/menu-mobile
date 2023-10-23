@@ -1,0 +1,109 @@
+body, ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    width: 150px;
+}
+
+.header-menu a {
+    color: black;
+    text-decoration: none;
+    font-family: sans-serif;
+    text-transform: uppercase;
+}
+
+.header-menu a:hover {
+    background: rgba(0, 0, 0, .05);
+}
+
+.header {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    padding: 1rem;
+    background: #e7e7e7;
+}
+
+.header-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.header-menu a {
+    display: block;
+    padding: .8rem;
+}
+
+.btn-mobile {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    
+    .header-menu {
+        display: block;
+        position: absolute;
+        width: 100%;
+        top: 100px;
+        right: 0px;
+        background: #e7e7e7;
+        height: 0px;
+        transition: .6s;
+        z-index: 1000;
+        visibility: hidden;
+        overflow-y: hidden;
+    }
+    .nav__primaria.active .header-menu {
+        height: calc(100vh - 100px);
+        visibility: visible;
+        overflow-y: auto;
+    }
+    .header-menu a {
+        padding: 1rem 0;
+        margin: 0 1rem;
+        border-bottom: 2px solid rgba(0, 0, 0, .05);
+    }
+    .btn-mobile {
+        display: flex;
+        padding: .5rem 1rem;
+        font-size: 1rem;
+        border: none;
+        background: none;
+        cursor: pointer;
+        gap: .5rem;
+    }
+    .hamburguer {
+        border-top: 2px solid;
+        width: 20px;
+    }
+    .hamburguer::after, .hamburguer::before  {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: currentColor;
+        margin-top: 5px;
+        transition: .3s;
+        position: relative;
+    }
+    .nav__primaria.active .hamburguer {
+       border-top-color: transparent;
+    }
+    .nav__primaria.active .hamburguer::before {
+        transform: rotate(135deg);
+    }
+    .nav__primaria.active .hamburguer::after {
+        transform: rotate(-135deg);
+        top: -7px;
+    }
+    #logo {
+        width: 100px;
+    }
+}
